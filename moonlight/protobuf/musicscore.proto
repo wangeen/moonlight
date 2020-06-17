@@ -18,7 +18,7 @@ package tensorflow.moonlight;
 // TODO(ringw): Fix python import issue, then load magenta with a prefix of
 // "magenta" instead of "magenta/magenta". The import here should be
 // "magenta/protobuf/music.proto".
-import "protobuf/music.proto";
+import "music.proto";
 
 // Alpha-stage OMR page model. Most protos (except Glyph.Type) are subject to
 // backwards-incompatible changes (e.g. renumbering or replacing fields).

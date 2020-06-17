@@ -91,14 +91,19 @@ def main(argv):
   end = time.time()
   sys.stderr.write('OMR elapsed time: %.2f\n' % (end - start))
 
-  if FLAGS.output_type == 'MusicXML':
-    output_bytes = conversions.score_to_musicxml(output)
-  else:
-    if FLAGS.text_format:
-      output_bytes = text_format.MessageToString(output).encode('utf-8')
-    else:
-      output_bytes = output.SerializeToString()
-  file_io.write_string_to_file(FLAGS.output, output_bytes)
+ # if FLAGS.output_type == 'MusicXML':
+ #   output_bytes = conversions.score_to_musicxml(output)
+ # else:
+ #   if FLAGS.text_format:
+ #     output_bytes = text_format.MessageToString(output).encode('utf-8')
+ #   else:
+ #     output_bytes = output.SerializeToString()
+  output_bytes = conversions.score_to_musicxml(output)
+  print(output_bytes)
+  f = open("output.xml", "wb")
+  f.write(output_bytes)
+  f.close()
+  #file_io.write_string_to_file(FLAGS.output, output_bytes)
 
 
 if __name__ == '__main__':
